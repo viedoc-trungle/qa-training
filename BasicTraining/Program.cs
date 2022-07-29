@@ -1,2 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using BasicTraining;
+
+Lesson1_Phuong.Sum();
+Lesson2_Phuong.Calculate();
