@@ -10,15 +10,30 @@ namespace BasicTraining
     {
         public static void Calculate()
         {
-            Console.Write("--- Lesson 2: Arithmetic Operator");
+            Console.WriteLine("--- Lesson 2: Arithmetic Operator");
+
             Console.Write("Input the first number: ");
-            double num1 = Double.Parse(Console.ReadLine());
+            var inputNum1 = Console.ReadLine();
+            double num1;
+            while (!double.TryParse(inputNum1, out num1))
+            {
+                Console.Write("Invalid number. Input the first number again: ");
+                inputNum1 = Console.ReadLine();
+            }
+
             Console.Write("Input the second number: ");
-            double num2 = Double.Parse(Console.ReadLine());
+            var inputNum2 = Console.ReadLine();
+            double num2;
+            while (!double.TryParse(inputNum2, out num2))
+            {
+                Console.Write("Invalid number. Input the second number again: ");
+                inputNum2 = Console.ReadLine();
+            }
+
+            Console.Write("Input the operator (sum, subtract, multiply, divide): ");
             double? result = null;
             while (result == null)
             {
-                Console.Write("Input the operator (sum, subtract, multiply, divide): ");
                 string inputOperator = Console.ReadLine().ToLower();
                 switch (inputOperator)
                 {
@@ -35,7 +50,7 @@ namespace BasicTraining
                         result = num1 / num2;
                         break;
                     default:
-                        Console.WriteLine("Invalid operator. Please input again.");
+                        Console.Write("Invalid operator. Input the operator (sum, subtract, multiply, divide) again:");
                         break;
                 }
             }
