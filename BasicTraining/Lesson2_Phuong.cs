@@ -47,6 +47,11 @@ namespace BasicTraining
                         result = num1 * num2;
                         break;
                     case "divide":
+                        if (num2 == 0)
+                        {
+                            Console.Write("Cannot divide by zero. Input the operator (sum, subtract, multiply, divide) again: ");
+                            break;
+                        }
                         result = num1 / num2;
                         break;
                     default:
