@@ -26,7 +26,7 @@ Console.WriteLine("Input Operator (add,subtract,multiply,divide): ");
 List<string> operators = new List<string>() {"add", "subtract", "multiply", "divide"};
 string sign = Console.ReadLine();
 
-float result=0;
+double result=0;
 SumOfTwoNumbers sss = new SumOfTwoNumbers();
 
 while (!operators.Contains(sign.ToString().ToLower()) || sign == null)
@@ -47,7 +47,7 @@ string LowerCaseSign = sign.ToString().ToLower();
         try
         {
             result = sss.divide(number1, number2);
-            result = (float) System.Math.Round(result, 2);
+            result = System.Math.Round(result, 2);
         }
         catch (Exception e)
         {

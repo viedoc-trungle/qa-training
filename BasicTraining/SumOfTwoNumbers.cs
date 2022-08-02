@@ -23,9 +23,10 @@ namespace BasicTraining
             return (a * b);
         }
 
-        public float divide(int a, int b)
+        public double divide(int a, int b)
         {
-            return a/b;
+            double res = decimal.ToDouble(a) / decimal.ToDouble(b);
+            return res;
         }
 
     }
