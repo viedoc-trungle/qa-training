@@ -30,7 +30,7 @@
         /// <summary>
         /// User input and validate operator 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The input operator</returns>
         public Operator InputOperator()
         {
             string inputOperator;
