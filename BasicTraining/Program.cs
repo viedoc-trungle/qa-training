@@ -4,55 +4,47 @@ using System.ComponentModel.Design;
 using BasicTraining;
 using Microsoft.VisualBasic.CompilerServices;
 
-Console.WriteLine("Input 1st number: ");
+Console.WriteLine("Input 2 numbers and operator(add, subtract, multiply, divide): ");
 var num1 = Console.ReadLine();
-int number1;
-
-while (!int.TryParse(num1, out number1))
-{
-    Console.WriteLine("Input an integer number:");
-    num1 = Console.ReadLine();
-}
-Console.WriteLine("Input 2nd number: ");
 var num2 = Console.ReadLine();
-int number2;
-while (!int.TryParse(num2, out number2))
-{
-    Console.WriteLine("Input an integer number:");
-    num2 = Console.ReadLine();
-}
-
-Console.WriteLine("Input Operator (add,subtract,multiply,divide): ");
-List<string> operators = new List<string>() {"add", "subtract", "multiply", "divide"};
-string sign = Console.ReadLine();
+string operatr = Console.ReadLine().ToString().ToLower();
 
 double result=0;
-SumOfTwoNumbers sss = new SumOfTwoNumbers();
+List<string> operators = new List<string>() { "add", "subtract", "multiply", "divide" };
 
-while (!operators.Contains(sign.ToString().ToLower()) || sign == null)
+bool num1IsInt = int.TryParse(num1, out int number1);
+bool num2IsInt = int.TryParse(num2, out int number2);
+bool correctOperator = operators.Contains(operatr);
+
+while (!num1IsInt || !num1IsInt || !correctOperator) 
 {
-    Console.WriteLine("Please input Operator (add,subtract,multiply,divide): ");
-    sign = Console.ReadLine();
+    Console.WriteLine("Input 2 numbers and correct operator(add, subtract, multiply, divide) again: ");
+    num1 = Console.ReadLine();
+    num2 = Console.ReadLine();
+    operatr = Console.ReadLine().ToString().ToLower();
+
+    correctOperator = operators.Contains(operatr);
+    num1IsInt = int.TryParse(num1, out number1);
+    num2IsInt = int.TryParse(num2, out number2);
 }
 
-string LowerCaseSign = sign.ToString().ToLower();
-    if (LowerCaseSign == "add")
-        result = sss.Sums(number1, number2);
-    else if (LowerCaseSign == "subtract")
-        result = sss.Subtract(number1, number2);
-    else if (LowerCaseSign == "multiply")
-        result = sss.multiply(number1, number2);
+CalculateTwoNumbers cal = new CalculateTwoNumbers();
+
+    if (operatr == "add")
+        result = cal.Sums(number1, number2);
+    else if (operatr == "subtract")
+        result = cal.Subtract(number1, number2);
+    else if (operatr == "multiply")
+        result = cal.multiply(number1, number2);
     else
     {
-        try
+        if(number2==0)
+            Console.WriteLine("Cannot divide by 0.");
+        else
         {
-            result = sss.divide(number1, number2);
-            result = System.Math.Round(result, 2);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("Cannot divide by 0");
+        result = cal.divide(decimal.ToDouble(number1), decimal.ToDouble(number2));
+        result = System.Math.Round(result, 2);
         }
     }
 if(number2 != 0)
-    Console.WriteLine("Result of "+sign+" 2 numbers is: " + result);
+    Console.WriteLine("Result of "+ operatr + " 2 numbers is: " + result);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BasicTraining
 {
-    internal class SumOfTwoNumbers
+    internal class CalculateTwoNumbers
     {
         public int Sums(int a, int b)
         {
@@ -23,9 +23,9 @@ namespace BasicTraining
             return (a * b);
         }
 
-        public double divide(int a, int b)
+        public double divide(double a, double b)
         {
-            double res = decimal.ToDouble(a) / decimal.ToDouble(b);
+            double res = a / b;
             return res;
         }
 
