@@ -7,7 +7,7 @@ using Microsoft.VisualBasic.CompilerServices;
 Console.WriteLine("Input 2 numbers and operator(add, subtract, multiply, divide): ");
 var num1 = Console.ReadLine();
 var num2 = Console.ReadLine();
-string operatr = Console.ReadLine().ToString().ToLower();
+string operatr = Console.ReadLine().ToLower();
 
 double result=0;
 List<string> operators = new List<string>() { "add", "subtract", "multiply", "divide" };
@@ -16,12 +16,12 @@ bool num1IsInt = int.TryParse(num1, out int number1);
 bool num2IsInt = int.TryParse(num2, out int number2);
 bool correctOperator = operators.Contains(operatr);
 
-while (!num1IsInt || !num1IsInt || !correctOperator) 
+while (!num1IsInt || !num2IsInt || !correctOperator) 
 {
     Console.WriteLine("Input 2 numbers and correct operator(add, subtract, multiply, divide) again: ");
     num1 = Console.ReadLine();
     num2 = Console.ReadLine();
-    operatr = Console.ReadLine().ToString().ToLower();
+    operatr = Console.ReadLine().ToLower();
 
     correctOperator = operators.Contains(operatr);
     num1IsInt = int.TryParse(num1, out number1);
