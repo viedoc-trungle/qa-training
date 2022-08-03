@@ -46,5 +46,5 @@ CalculateTwoNumbers cal = new CalculateTwoNumbers();
         result = System.Math.Round(result, 2);
         }
     }
-if(number2 != 0)
+if(operatr !="divide" || (operatr =="divide" && number2 !=0))
     Console.WriteLine("Result of "+ operatr + " 2 numbers is: " + result);
