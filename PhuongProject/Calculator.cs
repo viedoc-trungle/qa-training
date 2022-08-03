@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PhuongProject
+﻿namespace PhuongProject
 {
     public class Calculator
     {
@@ -18,7 +10,7 @@ namespace PhuongProject
             divide
         }
         /// <summary>
-        /// Input and validate number
+        /// User input and validate number
         /// </summary>
         /// <param name="numberName">Name of the number</param>
         /// <returns>The input number</returns>
@@ -35,7 +27,10 @@ namespace PhuongProject
 
             return number;
         }
-
+        /// <summary>
+        /// User input and validate operator 
+        /// </summary>
+        /// <returns></returns>
         public Operator InputOperator()
         {
             string inputOperator;
@@ -59,6 +54,13 @@ namespace PhuongProject
                 }
             }
         }
+        /// <summary>
+        /// Calculate 2 numbers
+        /// </summary>
+        /// <param name="calculator">operator</param>
+        /// <param name="num1">number 1</param>
+        /// <param name="num2">number 2</param>
+        /// <returns>result</returns>
         public double Calculate(Operator calculator, double num1, double num2)
         {
             switch (calculator)
@@ -75,8 +77,6 @@ namespace PhuongProject
                     Console.WriteLine("Error: Invalid Operator.");
                     return 0;
             }
-            
         }
-
     }
 }
