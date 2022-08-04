@@ -9,7 +9,12 @@ namespace BasicTraining
 {
     internal class CalculateTwoNumbers
     {
-        public double calculate2Numbers(string inputOperator, double a, double b)
+        /*
+         * Calculate 2 numbers
+         * Input operator and 2 numbers
+         * Output result 
+         */
+        public static double calculate2Numbers(string inputOperator, double a, double b)
         {
             if (inputOperator == "add")
                 return a+b;
