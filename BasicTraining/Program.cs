@@ -12,9 +12,5 @@ public class Program
 
         Lesson3_Calculate.Calculator(operation, num1, num2);
 
-
-
-
-
     }
 }
