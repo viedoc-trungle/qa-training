@@ -23,10 +23,10 @@ namespace PhuongProject
             for (int i = 0; i < l1; i++)
             {
                 int k = i;
-                int j = 0;
-                while (j < l2)
+
+                for (int j = 0; j < l2; j++)
                 {
-                    if (str1[k]== str2[j])
+                    if (str1[k] == str2[j])
                     {
                         matchedChar.Add(str2[j]);
                         if (k >= l1 - 1)
@@ -35,14 +35,12 @@ namespace PhuongProject
                             {
                                 break;
                             }
-                            else
                             {
                                 matchedChar.Clear();
                                 break;
                             }
                         }
                         k++;
-                        j++;
                     }
                     else
                     {
