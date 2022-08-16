@@ -12,10 +12,10 @@ public class Program
 
 
         //Lesson4
-        string str1 = Lesson4.checkStringEmpty();
-        string str2 = Lesson4.checkStringEmpty();
+        string str1 = Lesson4.CheckStringIsEmpty();
+        string str2 = Lesson4.CheckStringIsEmpty();
         
-        int test = Lesson4.isSubstringAndCount(str1, str2);
+        int test = Lesson4.IsSubstringAndCount(str1, str2);
 
         if (test > 0)
             Console.WriteLine("string 1 is sub of string2");
