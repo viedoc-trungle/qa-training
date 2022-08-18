@@ -9,6 +9,12 @@ namespace PhuongProject
 {
     internal class ArrayCalculation
     {
+        /// <summary>
+        /// Update the data for the first array based on the second array
+        /// </summary>
+        /// <param name="array1">first array</param>
+        /// <param name="array2">second array</param>
+        /// <returns>the updated first array</returns>
         public static int[] ArrayCalculate(int[] array1, int[] array2)
         {
             int l1 = array1.Length;
