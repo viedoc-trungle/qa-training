@@ -19,20 +19,13 @@ namespace PhuongProject
         {
             int l1 = array1.Length;
             int l2 = array2.Length;
-            int[] array3 = new int[l1];
             for (int i = 0; i < l1; i++)
             {
                 for (int j = 0; j < l2; j++)
                     if (array2[j] == i)
-                        array3[i] += j;
+                        array1[i] += j;
 
             }
-
-            for (int i = 0; i < l1; i++)
-            {
-                array1[i] += array3[i];
-            }
-
             return array1;
         }
     }
