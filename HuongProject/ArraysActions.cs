@@ -58,7 +58,7 @@ namespace HuongProject
             {
                
                 if (i == arr.Length-1)
-                    Console.WriteLine(arr[i] + ", ");
+                    Console.WriteLine(arr[i]);
                 else
                 {
                     Console.Write(arr[i] + ", ");

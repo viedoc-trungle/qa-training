@@ -3,13 +3,14 @@ using HuongProject;
 using Microsoft.VisualBasic.CompilerServices;
 
 
+ArraysActions arrayAct = new ArraysActions();
 // Initial values for 1st Array
 Console.WriteLine("Input length of 1st array: ");
 int length_1st_array = Int32.Parse(Console.ReadLine());
 Console.WriteLine("Input max value of element in 1st array: ");
 int maxValue = Int32.Parse(Console.ReadLine());
 
-ArraysActions arrayAct = new ArraysActions();
+
 int[] _1stArray = arrayAct.createArray(maxValue, length_1st_array);
 
 
@@ -29,7 +30,13 @@ Console.WriteLine("Updated Array:");
 arrayAct.printArray(updateArray);
 
 
+//Test
+//int[] array1 = new int[5] {1,2,5,7,8};
+//int[] array2 = new int[4]{1, 1,2,3};
+//int[] updateArray2 = arrayAct.updateArray(array1, array2);
 
+//Console.WriteLine("Updated Array:");
+//arrayAct.printArray(updateArray2);
 /*
  * Calculate 2 integer numbers
  * Input Operator, first number, second number
