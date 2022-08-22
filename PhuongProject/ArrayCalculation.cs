@@ -17,13 +17,10 @@ namespace PhuongProject
         /// <returns>the updated first array</returns>
         public static int[] ArrayCalculate(int[] array1, int[] array2)
         {
-            int l1 = array1.Length;
             int l2 = array2.Length;
-            for (int i = 0; i < l1; i++)
+            for (int i = 0; i < l2; i++)
             {
-                for (int j = 0; j < l2; j++)
-                    if (array2[j] == i)
-                        array1[i] += j;
+               array1[array2[i]] += i;
 
             }
             return array1;
