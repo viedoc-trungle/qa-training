@@ -30,22 +30,13 @@ namespace HuongProject
 
         public int[] updateArray(int[] array1, int[] array2)
         {
-            int[] newArray = new int[array1.Length];
-            int abc = 0;
+         
             for (int j = 0; j < array2.Length; j++)
             {
-                if (array2[j] == j)
-                    abc += j;
+                array1[array2[j]] += j;
             }
 
-            for (int i = 0; i < array1.Length; i++)
-            {
-                newArray[i] = array1[i] + abc;
-
-            }
-
-            return newArray;
-
+            return array1;
         }
 
         /*

@@ -13,21 +13,17 @@ int maxValue = Int32.Parse(Console.ReadLine());
 
 int[] _1stArray = arrayAct.createArray(maxValue, length_1st_array);
 
-
 // Initial values for 2nd array
 Console.WriteLine("Input length of second array: ");
 int length_2nd_array = Int32.Parse(Console.ReadLine());
 int[] _2ndArray = arrayAct.createArray(length_1st_array, length_2nd_array);
-
-//Update value of 1st array
-int[] updateArray = arrayAct.updateArray(_1stArray, _2ndArray);
 
 Console.WriteLine("First Array:");
 arrayAct.printArray(_1stArray);
 Console.WriteLine("Second Array:");
 arrayAct.printArray(_2ndArray);
 Console.WriteLine("Updated Array:");
-arrayAct.printArray(updateArray);
+arrayAct.printArray(arrayAct.updateArray(_1stArray, _2ndArray));
 
 
 //Test
