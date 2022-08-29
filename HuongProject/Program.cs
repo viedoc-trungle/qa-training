@@ -3,6 +3,31 @@ using HuongProject;
 using Microsoft.VisualBasic.CompilerServices;
 
 
+/*
+ * Get first ten digits of total all elements of an Array which has element is string of 50 random number from 0 to 9 
+ */
+
+ string[] Arr =
+{
+    "34481519222841168335179283619606515065600290734112",
+    "64675037005515242369580904950058793711838643029211",
+    "03808880036514980215626857715233096766950425417910",
+    "00279640478557387717978581324888040560649297268632",
+    "45289904961900228567619055522427162181786091716922",
+    "81827521178436097581702309895870088300534540504827",
+    "89362605901370105980666752644003978595224283072354",
+    "25781268084026236316120240677836694483579058075604",
+    "01556871363720018822716013737228815309475500832593",
+    "70087675855811056554561936532353661857015086464198"
+};
+
+ AddLongNumberString a = new AddLongNumberString();
+Console.WriteLine("First ten digits of total all elements in array is: " + a.getFirstTenDigit(Arr));
+
+
+
+
+/*
 ArraysActions arrayAct = new ArraysActions();
 // Initial values for 1st Array
 Console.WriteLine("Input length of 1st array: ");
@@ -25,6 +50,7 @@ arrayAct.printArray(_2ndArray);
 Console.WriteLine("Updated Array:");
 arrayAct.printArray(arrayAct.updateArray(_1stArray, _2ndArray));
 
+*/
 
 //Test
 //int[] array1 = new int[5] {1,2,5,7,8};
