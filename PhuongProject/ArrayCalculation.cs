@@ -121,7 +121,7 @@ namespace PhuongProject
             sum1 += extraSum2;
             string sum1String = sum1.ToString();
 
-            return sum1String + sum2String + sum3String + sum4String + sum5String;
+            return sum1String + sum2String.Substring(sum2String.Length - 10, 10) + sum3String.Substring(sum3String.Length - 10, 10) + sum4String.Substring(sum4String.Length - 10, 10) + sum5String.Substring(sum2String.Length - 10, 10);
 
         }
     }
