@@ -9,10 +9,12 @@ namespace HuongProject
     internal class AddLongNumberString
     {
       
-        private string[] total = new string[51];
+        
 
         public string getFirstTenDigit(string[] Arr)
         {
+        
+            string[] total = new string[51];
             int temp = 0;
             for (int i = 49; i >= 0; i--)
             {
@@ -35,12 +37,14 @@ namespace HuongProject
                 }
 
                 total[i + 1] = dv.ToString();
+                if (i == 0)
+                    total[0] = temp.ToString();
 
 
             }
 
             string _1stTenDigit = null;
-            if(total[0] != null)
+            if(total[0] != "0")
                 _1stTenDigit = total[0] + total[1] + total[2] + total[3] + total[4] + total[5] + total[6] +
                                   total[7] + total[8] + total[9];
             else
