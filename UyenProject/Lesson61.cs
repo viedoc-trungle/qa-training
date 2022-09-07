@@ -18,29 +18,43 @@ namespace UyenProject
 
             for (int i = 0; i < myArray.Length; i++)
             {
-                double.TryParse(Console.ReadLine(), out number);
-                myArray[i] = number;
-            }
-
-            Console.Write("\nWe have full array: ");
-            for (int i = 0; i < myArray.Length; i++)
-            {
-                Console.Write("{0}  ", myArray[i]);
-            }
+                if (double.TryParse(Console.ReadLine(), out number))
+                     myArray[i] = number;
+                else
+                    Console.WriteLine("Invalid input. Please enter numbers only");
+            }           
             return myArray;
         }
-
-        public static double CalculateSumFirst10Elements(double[] myArray)
+        /// <summary>
+        /// Summary all elements in an array
+        /// </summary>
+        /// <param name="myArray"></param>
+        /// <returns></returns>
+        public static double SumArrayElements(double[] myArray)
         {
             double sum = 0;
 
-            for (int i = 0; i <= 10; i++)
+            for (int i = 0; i < myArray.Length; i++)
             {
-                sum = myArray[i] + sum;
+                sum += myArray[i];
             }
-
-            Console.Write("Sum of 10 1st elements is: " + sum);
+            Console.WriteLine("Sum of all elements is: " + sum);          
+           
             return sum;
+        }
+        ///Print 10 first digits in sum 
+        public static double Print10Digits(double sum, int n)
+        {
+            // getting number of digits in sum
+            int numberOfDigits =(int)Math.Floor(Math.Log10(sum)+1);
+            Console.WriteLine("Number of Digits:" + numberOfDigits);          
+            
+            //Print 10 first digits in the number 
+            double first10Digit = (double)(sum / Math.Pow(10, numberOfDigits - n));            
+            Console.WriteLine("10 first digits is: " + Math.Round(first10Digit));
+            return first10Digit;
         }
     }
 }
+
+
