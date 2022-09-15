@@ -33,27 +33,7 @@ namespace PhuongProject
         /// <returns>The first 10 numbers of sum of all elements in an array</returns>
         public static string GetFirstTenDigitArraySum(string[] array)
         {
-            int l = array.Length;
-
-            string[] cutString = new string[l];
-            for (int i = 0; i < l; i++)
-            {
-                cutString[i] = array[i].Substring(0, 15);
-            }
-
-            ulong[] tempLong = new ulong[l];
-            for (int i = 0; i < l; i++)
-            {
-                tempLong[i] = ulong.Parse(cutString[i]);
-            }
-
-            ulong sumLong = 0;
-            foreach (ulong ul in tempLong)
-            {
-                sumLong += ul;
-            }
-
-            return sumLong.ToString().Substring(0, 10);
+            return ArraySum(array).Substring(0, 10);
         }
 
         /// <summary>
