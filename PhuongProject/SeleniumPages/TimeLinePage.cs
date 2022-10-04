@@ -15,7 +15,7 @@ namespace PhuongProject.SeleniumPages
         {
             _driver = driver;
         }
-        public IList<IWebElement> ArticleList => _driver.FindElements(By.XPath("//a[text()='Continue reading ']"));
+        public IList<IWebElement> ArticleList => _driver.FindElements(By.XPath("//a[@class = 'more-link']"));
 
         public DetailPage GoToDetailPage(int i)
         {

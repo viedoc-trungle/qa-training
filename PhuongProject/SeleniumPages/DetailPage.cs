@@ -9,10 +9,10 @@ namespace PhuongProject.SeleniumPages
         {
             _driver = driver;
         }
-        public IList<IWebElement> Categories => _driver.FindElements(By.XPath("//a[@rel='category tag']"));
+        public IList<IWebElement> Categories => _driver.FindElements(By.XPath("//span[@class = 'cat-links']/a"));
         public IWebElement Title => _driver.FindElement(By.XPath("//h1[@class='entry-title']"));
         public IWebElement Date => _driver.FindElement(By.XPath("//span[@class = 'entry-date']"));
-        public IWebElement Author => _driver.FindElement(By.XPath("//a[@rel='author']"));
+        public IWebElement Author => _driver.FindElement(By.XPath("//span[@class = 'author vcard']/a"));
         public IList<IWebElement> ContentParagraphs => _driver.FindElements(By.XPath("//div[@class = 'entry-content']/p"));
 
     }

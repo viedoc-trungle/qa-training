@@ -11,7 +11,7 @@ namespace PhuongProject.SeleniumPages
     public class PageBase
     {
         public static WebDriver _driver;
-        public IList<IWebElement> TimeLinePages => _driver.FindElements(By.XPath("//nav[@aria-label='Lưu trữ']//li/a"));
+        public IList<IWebElement> TimeLinePages => _driver.FindElements(By.XPath("//aside[@id = 'archives-8']//li/a"));
 
         public static void ScrollToElement(IWebElement element)
         {
