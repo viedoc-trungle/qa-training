@@ -19,7 +19,7 @@ namespace PhuongProject
             xlsSheet.Cell("E1").Value = "Content";
             int excelRow = 2;
 
-            for (int i = 0; i < homePage.TimeLinePages.Count; i++)
+            for (int i = 0; i < homePage.TimeLineMenus.Count; i++)
             {
                 var timeLinePage = homePage.GoToTimeLinePage(i);
                 for (int j = 0; j < timeLinePage.ArticleList.Count; j++)

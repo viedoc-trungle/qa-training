@@ -30,7 +30,5 @@ namespace PhuongProject.SeleniumActions
             _driver.Navigate().GoToUrl(url);
             return new HomePage(_driver);
         }
-
-     
     }
 }

@@ -16,8 +16,8 @@ namespace PhuongProject.SeleniumPages
 
         public TimeLinePage GoToTimeLinePage(int i)
         {
-            ScrollToElement(TimeLinePages[i]);
-            TimeLinePages[i].Click();
+            ScrollToElement(TimeLineMenus[i]);
+            TimeLineMenus[i].Click();
             return new TimeLinePage(_driver);
         }
     }
