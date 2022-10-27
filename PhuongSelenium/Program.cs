@@ -1,13 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using System.Net;
-using System.Text;
 using System.Web;
 using ClosedXML.Excel;
 using HtmlAgilityPack;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-
 
 //Create driver
 ChromeDriver driver = new ChromeDriver("C:\\Work Data\\Automation\\ChromeDriver");
