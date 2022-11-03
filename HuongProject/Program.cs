@@ -1,12 +1,114 @@
-﻿using BasicTraining;
+﻿using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Text;
+using BasicTraining;
+using CsvHelper;
 using HuongProject;
 using Microsoft.VisualBasic.CompilerServices;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+
+/*
+ * Navigate to url: https://www.24h.com.vn/suc-khoe-doi-song-c62.html
+ * Get infomation about : <Title, Date, Author> of some article
+ * Write to CSV file
+ */
+
+ChromeDriver driver = new ChromeDriver("C://Drivers");
+driver.Navigate().GoToUrl("https://www.24h.com.vn/suc-khoe-doi-song-c62.html");
+
+// Get all links of article in root page that has specific class
+
+ReadOnlyCollection<IWebElement> allElements = driver.FindElements(By.XPath("//*[@class='cate-24h-foot-home-latest-list__name']/a"));
+IList<IWebElement> newList = new List<IWebElement>(allElements);
+string[] url_List = new string[newList.Count()];
+
+for (int j = 0; j < newList.Count(); j++)
+{
+    url_List[j] = newList[j].GetAttribute("href");
+}
+
+//Create new CSV file to store data of article
+var outputFile = "C:\\Users\\HuongDo\\source\\repos\\qa-training\\HuongProject\\Data\\demo.csv";
+
+// Open each article and get info, then write data to CSV file
+using (var stream = File.CreateText(outputFile))
+{
+    stream.WriteLine(string.Format("{0},{1},{2}{3}", "Title", "Date", "Author", Environment.NewLine));
+    string title = null;
+    string date = null;
+    string author = null;
+
+    for (int i = 0; i < newList.Count(); i++)
+    {
+        driver.Navigate().GoToUrl(url_List[i]);
+        title = driver.FindElement(By.Id("article_title")).Text.ToString();
+        date = driver.FindElement(By.ClassName("cate-24h-foot-arti-deta-cre-post")).Text.ToString();
+        author = driver.FindElement(By.ClassName("nguontin")).Text.ToString();
+        stream.WriteLine(string.Format("{0},{1},{2}{3}", title, date, author, Environment.NewLine));
+    }
+}
+
+
+
+
+/*try
+{
+CsvWriter csvOutput = new CsvWriter(new FileWriter(outputFile, true), ',');
+csvOutput.write(driver.FindElement(By.Id("article_title")).ToString());
+csvOutput.write(driver.FindElement(By.ClassName("cate-24h-foot-arti-deta-cre-post")).ToString());
+csvOutput.write(driver.FindElement(By.ClassName("nguontin")).ToString()); //Your selenium result.
+csvOutput.endRecord();
+csvOutput.close();
+}
+
+
+
+using (var mem = new MemoryStream())
+{
+using (var writer = new StreamWriter(mem))
+using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
+{
+
+    //csvWriter.Configuration.Delimiter = ";";
+    csvWriter.WriteField("Customer");
+    csvWriter.WriteField("Title");
+    csvWriter.WriteField("Deadline");
+    csvWriter.NextRecord();
+
+
+
+    for (int i = 0; i < newList.Count(); i++)
+    {
+        url_List[i] = newList[i].GetAttribute("href");
+        driver.Navigate().GoToUrl(url_List[i]);
+
+        csvWriter.WriteField(driver.FindElement(By.Id("article_title")).ToString());
+        csvWriter.WriteField(driver.FindElement(By.ClassName("cate-24h-foot-arti-deta-cre-post")).ToString());
+        csvWriter.WriteField(driver.FindElement(By.ClassName("nguontin")).ToString());
+        csvWriter.NextRecord();
+
+        //string title = driver.FindElement(By.Id("article_title")).ToString();
+        //string date = driver.FindElement(By.ClassName("cate-24h-foot-arti-deta-cre-post")).ToString();
+        //string author = driver.FindElement(By.ClassName("nguontin")).ToString();
+    }
+
+    writer.Flush();
+    var result = Encoding.UTF8.GetString(mem.ToArray());
+    Console.WriteLine(result);
+}
+
+}
+
+
+*/
+
 
 
 /*
  * Get first ten digits of total all elements of an Array which has element is string of 50 random number from 0 to 9 
  */
-
+/*
  string[] Arr =
 {
     "34481519222841168335179283619606515065600290734112",
@@ -24,7 +126,7 @@ using Microsoft.VisualBasic.CompilerServices;
  AddLongNumberString a = new AddLongNumberString();
 Console.WriteLine("First ten digits of total all elements in array is: " + a.getFirstTenDigit(Arr));
 
-
+*/
 
 
 /*
